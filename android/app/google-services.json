@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "72635706914",
+    "project_id": "atividade-pdm-eed49",
+    "storage_bucket": "atividade-pdm-eed49.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72635706914:android:4eb9d143b0131f14b0a47b",
+        "android_client_info": {
+          "package_name": "com.example.aula_pdm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72635706914-1lrpbi7r6mvk18gl07o76crbs9f5lkst.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEPGgslBY46nNBAjjNwpZ-VfehwXVHI3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "72635706914-1lrpbi7r6mvk18gl07o76crbs9f5lkst.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
