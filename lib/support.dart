@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:settings_ui/settings_ui.dart';
 
 void main() => runApp(const SupportApp());
 
@@ -34,13 +34,16 @@ class SupportScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
-                    // 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-                    'https://images.unsplash.com/photo-1509023464722-18d996393ca8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
+                    // 'https://images.unsplash.com/photo-1509023464722-18d996393ca8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
+                    // 'https://wallpaperaccess.com/download/dark-green-forest-3483001'
+                    // 'https://wallpaperaccess.com/download/dark-green-forest-1516567'
+                        'https://wallpaperaccess.com/download/dark-green-forest-4641381'
                   ),
                   fit: BoxFit.cover,
                 ),
               ),
             ),
+
             bottom: TabBar(
               tabs: [
                 Tab(icon: Icon(Icons.home), text: 'Inicio'),
@@ -56,42 +59,66 @@ class SupportScreen extends StatelessWidget {
                 // Implementar redirecionamento para outra página
               },
             ),
-            // actions: [
-            //   IconButton(
-            //     icon: Icon(Icons.notifications_none),
-            //     onPressed: () {},
-            //   ),
-            //   IconButton(
-            //     icon: Icon(Icons.search),
-            //     onPressed: () {},
-            //   ),
-            // ],
+            actions: [
+              IconButton(
+                icon: Icon(Icons.notifications_none),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: Icon(Icons.search),
+                onPressed: () {},
+              ),
+            ],
           ),
           body: Center(
-            child: SupportContent(),
+            child: SupportContent()
           ),
         )
     );
   }
 
   Widget SupportContent() {
-    return Column(
-      children: [
-        BuildSupportButtons(),
+    return SettingsList(
+      sections: [
+        SettingsSection(
+          title: Text('Interface'),
+          tiles: <SettingsTile>[
+            SettingsTile.navigation(
+              leading: Icon(Icons.language),
+              title: Text('Linguagem'),
+              value: Text('Português - Brasil'),
+            ),
+            SettingsTile.switchTile(
+              onToggle: (value) {},
+              initialValue: false,
+              leading: Icon(Icons.format_paint),
+              title: Text('Modo escuro'),
+            ),
+          ],
+        ),
       ],
     );
   }
 
   Widget BuildSupportButtons() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        SupportButton("Hello, I'm under the water!"),
-        SupportButton("Hello, I'm under the water!"),
-        SupportButton("Hello, I'm under the water!"),
-        SupportButton("Hello, I'm under the water!"),
-        SupportButton("Hello, I'm under the water!"),
-        SupportButton("Hello, I'm under the water!"),
+    return SettingsList(
+      sections: [
+        SettingsSection(
+          title: Text('Common'),
+          tiles: <SettingsTile>[
+            SettingsTile.navigation(
+              leading: Icon(Icons.language),
+              title: Text('Language'),
+              value: Text('English'),
+            ),
+            SettingsTile.switchTile(
+              onToggle: (value) {},
+              initialValue: true,
+              leading: Icon(Icons.format_paint),
+              title: Text('Enable custom theme'),
+            ),
+          ],
+        ),
       ],
     );
   }
