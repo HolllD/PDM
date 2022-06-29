@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import '../constants.dart';
 
 import 'profile_list_item.dart';
@@ -8,8 +9,15 @@ import 'profile_list_item.dart';
 class ProfileContent extends StatelessWidget {
   const ProfileContent();
 
+  Future<ParseUser?> getUser() async {
+    var currentUser = await ParseUser.currentUser() as ParseUser?;
+    return currentUser;
+  }
+
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: const Size(414.0, 896.0));
+    var currentUser = getUser();
 
     var profileInfo = Expanded(
       child: Column(
@@ -30,7 +38,7 @@ class ProfileContent extends StatelessWidget {
                     height: kSpacingUnit.w * 2.5,
                     width: kSpacingUnit.w * 2.5,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).accentColor,
+                      color: Colors.lightGreen[300],
                       shape: BoxShape.circle,
                     ),
                     child: Center(
@@ -48,15 +56,35 @@ class ProfileContent extends StatelessWidget {
             ),
           ),
           SizedBox(height: kSpacingUnit.w * 2),
-          Text(
-            'Nicolas Adams',
-            style: kTitleTextStyle,
+
+          FutureBuilder<ParseUser?>(
+            future: getUser(),
+            builder: (context, snapshot) {
+              return Text (
+                "${snapshot.data!.username}",
+                style: kTitleTextStyle,
+              );
+            }
           ),
+
+          // Text(
+          //   '$}',
+          //   style: kTitleTextStyle,
+          // ),
           SizedBox(height: kSpacingUnit.w * 0.5),
-          Text(
-            'nicolasadams@gmail.com',
-            style: kCaptionTextStyle,
+          FutureBuilder<ParseUser?>(
+              future: getUser(),
+              builder: (context, snapshot) {
+                return Text (
+                  "${snapshot.data!.emailAddress}",
+                  style: kCaptionTextStyle,
+                );
+              }
           ),
+          // Text(
+          //   'nicolasadams@gmail.com',
+          //   style: kCaptionTextStyle,
+          // ),
           SizedBox(height: kSpacingUnit.w * 2),
         ],
       ),
@@ -102,4 +130,6 @@ class ProfileContent extends StatelessWidget {
       ],
     );
   }
+
+  void init(BuildContext context) {}
 }

@@ -36,7 +36,7 @@ class _SupportScreenState extends State<SupportScreen>
     new Tab(icon: Icon(Icons.settings), text: 'Configurações'),
   ];
 
-  late TabController _tabController;
+  TabController? _tabController;
 
   
 
@@ -62,7 +62,7 @@ class _SupportScreenState extends State<SupportScreen>
         child: Scaffold(
             backgroundColor: Colors.white,
             appBar: AppBar(
-              title: Text(myTabs[_tabController.index].text ?? ""),
+              title: Text(myTabs[_tabController?.index ?? 0].text ?? ""),
               // backgroundColor: Color.fromARGB(255, 24, 24, 24),
               elevation: 20,
               flexibleSpace: Container(

@@ -29,7 +29,7 @@ class ProfileListItem extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(kSpacingUnit.w * 3),
-        color: Theme.of(context).backgroundColor,
+        color: Colors.lightGreen[300]
       ),
       child: Row(
         children: <Widget>[
@@ -42,6 +42,7 @@ class ProfileListItem extends StatelessWidget {
             this.text,
             style: kTitleTextStyle.copyWith(
               fontWeight: FontWeight.w500,
+              // color: Colors.white,
             ),
           ),
           Spacer(),
