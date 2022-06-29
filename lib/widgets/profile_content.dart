@@ -17,7 +17,6 @@ class ProfileContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, designSize: const Size(414.0, 896.0));
-    var currentUser = getUser();
 
     var profileInfo = Expanded(
       child: Column(
@@ -136,11 +135,16 @@ class ProfileContent extends StatelessWidget {
                 text: 'Convidar um amigo',
                 key: null,
               ),
-              const ProfileListItem(
-                icon: LineAwesomeIcons.alternate_sign_out,
-                text: 'Sair',
-                hasNavigation: false,
-                key: null,
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+                child: const ProfileListItem(
+                  icon: LineAwesomeIcons.alternate_sign_out,
+                  text: 'Sair',
+                  hasNavigation: false,
+                  key: null,
+                ),
               ),
             ],
           ),
