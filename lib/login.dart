@@ -31,7 +31,7 @@ class SignUpApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => const SignUpScreen(),
-        '/index': (context) => const SupportScreen(),
+        '/index': (context) => SupportScreen(),
       },
     );
   }
