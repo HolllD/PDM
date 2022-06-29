@@ -111,9 +111,7 @@ class _SupportScreenState extends State<SupportScreen>
                 Center(
                   child: Text("Feed"),
                 ),
-                Center(
-                  child: Text("Conta"),
-                ),
+                profileContent(),
                 SupportContent(),
               ]
             )
@@ -144,40 +142,8 @@ class _SupportScreenState extends State<SupportScreen>
     );
   }
 
-  Widget BuildSupportButtons() {
-    return SettingsList(
-      sections: [
-        SettingsSection(
-          title: Text('Common'),
-          tiles: <SettingsTile>[
-            SettingsTile.navigation(
-              leading: Icon(Icons.language),
-              title: Text('Language'),
-              value: Text('English'),
-            ),
-            SettingsTile.switchTile(
-              onToggle: (value) {},
-              initialValue: true,
-              leading: Icon(Icons.format_paint),
-              title: Text('Enable custom theme'),
-            ),
-          ],
-        ),
-      ],
-    );
+  Widget profileContent() {
+    return Text("Conta");
   }
 
-  Widget SupportButton(String text) {
-    return ElevatedButton(
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(Colors.black12),
-      ),
-      onPressed: () {},
-      child: Text(
-        '$text',
-        textAlign: TextAlign.center,
-        style: const TextStyle(fontWeight: FontWeight.bold),
-      ),
-    );
-  }
 }
