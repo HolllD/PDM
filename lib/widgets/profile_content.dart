@@ -29,9 +29,9 @@ class ProfileContent extends StatelessWidget {
             child: Stack(
               children: <Widget>[
                 CircleAvatar(
-                  radius: kSpacingUnit.w * 5,
-                  backgroundImage: const NetworkImage('https://i.stack.imgur.com/JfrKO.jpg?s=192&g=1')
-                ),
+                    radius: kSpacingUnit.w * 5,
+                    backgroundImage: const NetworkImage(
+                        'https://i.stack.imgur.com/JfrKO.jpg?s=192&g=1')),
                 Align(
                   alignment: Alignment.bottomRight,
                   child: Container(
@@ -56,16 +56,18 @@ class ProfileContent extends StatelessWidget {
             ),
           ),
           SizedBox(height: kSpacingUnit.w * 2),
-
           FutureBuilder<ParseUser?>(
-            future: getUser(),
-            builder: (context, snapshot) {
-              return Text (
-                "${snapshot.data!.username}",
-                style: kTitleTextStyle,
-              );
-            }
-          ),
+              future: getUser(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Text(
+                    "${snapshot.data!.username}",
+                    style: kTitleTextStyle,
+                  );
+                } else {
+                  return const Text("Usuário!");
+                }
+              }),
 
           // Text(
           //   '$}',
@@ -75,12 +77,15 @@ class ProfileContent extends StatelessWidget {
           FutureBuilder<ParseUser?>(
               future: getUser(),
               builder: (context, snapshot) {
-                return Text (
-                  "${snapshot.data!.emailAddress}",
-                  style: kCaptionTextStyle,
-                );
-              }
-          ),
+                if (snapshot.hasData) {
+                  return Text(
+                    "${snapshot.data!.emailAddress}",
+                    style: kCaptionTextStyle,
+                  );
+                } else {
+                  return const Text("Email!");
+                }
+              }),
           // Text(
           //   'nicolasadams@gmail.com',
           //   style: kCaptionTextStyle,
@@ -100,7 +105,6 @@ class ProfileContent extends StatelessWidget {
       ],
     );
 
-
     return Column(
       children: <Widget>[
         Expanded(
@@ -108,21 +112,35 @@ class ProfileContent extends StatelessWidget {
             children: <Widget>[
               header,
               const ProfileListItem(
+                icon: LineAwesomeIcons.school,
+                text: 'Alterar semestre',
+                key: null,
+              ),
+              const ProfileListItem(
+                icon: LineAwesomeIcons.chalkboard_teacher,
+                text: 'Alterar modo de ajuda',
+                key: null,
+              ),
+              const ProfileListItem(
                 icon: LineAwesomeIcons.user_shield,
-                text: 'Privacidade', key: null,
+                text: 'Privacidade',
+                key: null,
               ),
               const ProfileListItem(
                 icon: LineAwesomeIcons.question_circle,
-                text: 'Ajuda & Suporte', key: null,
+                text: 'Ajuda & Suporte',
+                key: null,
               ),
               const ProfileListItem(
                 icon: LineAwesomeIcons.user_plus,
-                text: 'Convidar um amigo', key: null,
+                text: 'Convidar um amigo',
+                key: null,
               ),
               const ProfileListItem(
                 icon: LineAwesomeIcons.alternate_sign_out,
                 text: 'Sair',
-                hasNavigation: false, key: null,
+                hasNavigation: false,
+                key: null,
               ),
             ],
           ),

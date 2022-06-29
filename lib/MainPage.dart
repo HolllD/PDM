@@ -30,10 +30,10 @@ class _SupportScreenState extends State<SupportScreen>
   var titleName = "teste";
 
   final List<Tab> myTabs = <Tab>[
-    new Tab(icon: Icon(Icons.home), text: 'Inicio'),
-    new Tab(icon: Icon(Icons.list_alt), text: 'Feed'),
-    new Tab(icon: Icon(Icons.person), text: 'Conta'),
-    new Tab(icon: Icon(Icons.settings), text: 'Configurações'),
+    new Tab(icon: const Icon(Icons.home), text: 'Inicio'),
+    new Tab(icon: const Icon(Icons.list_alt), text: 'Feed'),
+    new Tab(icon: const Icon(Icons.person), text: 'Conta'),
+    new Tab(icon: const Icon(Icons.settings), text: 'Configurações'),
   ];
 
   TabController? _tabController;
@@ -48,7 +48,7 @@ class _SupportScreenState extends State<SupportScreen>
 
   selectContent(indexContent) {
     if (indexContent == 4) {
-      return SupportContent();
+      return const SupportContent();
     }
     // else {
     //   return Center(child: Text(tab.text ?? ""));
@@ -57,6 +57,11 @@ class _SupportScreenState extends State<SupportScreen>
 
   @override
   Widget build(BuildContext context) {
+
+    _tabController?.addListener(() {
+      setState(() {});
+    });
+
     return DefaultTabController(
         length: 4,
         child: Scaffold(
@@ -66,7 +71,7 @@ class _SupportScreenState extends State<SupportScreen>
               // backgroundColor: Color.fromARGB(255, 24, 24, 24),
               elevation: 20,
               flexibleSpace: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: NetworkImage(
                       // 'https://images.unsplash.com/photo-1509023464722-18d996393ca8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
@@ -82,31 +87,28 @@ class _SupportScreenState extends State<SupportScreen>
               bottom: TabBar(
                 controller: _tabController,
                 tabs: myTabs,
-                onTap: (_) {
-                  setState((){});
-                },
               ),
               centerTitle: true,
               leading: IconButton(
-                icon: Icon(Icons.arrow_back),
+                icon: const Icon(Icons.arrow_back),
                 onPressed: () {
                   // Implementar redirecionamento para outra página
                 },
               ),
               actions: [
                 IconButton(
-                  icon: Icon(Icons.notifications_none),
+                  icon: const Icon(Icons.notifications_none),
                   onPressed: () {},
                 ),
                 IconButton(
-                  icon: Icon(Icons.search),
+                  icon: const Icon(Icons.search),
                   onPressed: () {},
                 ),
               ],
             ),
             body: TabBarView(
               controller: _tabController,
-              children: [
+              children: const [
                 Center(
                   child: Text("Inicio"),
                 ),
