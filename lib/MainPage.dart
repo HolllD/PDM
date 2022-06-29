@@ -1,3 +1,5 @@
+import 'package:aula_pdm/widgets/profile_content.dart';
+import 'package:aula_pdm/widgets/support_content.dart';
 import 'package:flutter/material.dart';
 import 'package:settings_ui/settings_ui.dart';
 import 'package:aula_pdm/profile.dart';
@@ -111,7 +113,7 @@ class _SupportScreenState extends State<SupportScreen>
                 Center(
                   child: Text("Feed"),
                 ),
-                profileContent(),
+                ProfileContent(),
                 SupportContent(),
               ]
             )
@@ -119,31 +121,5 @@ class _SupportScreenState extends State<SupportScreen>
     );
   }
 
-  Widget SupportContent() {
-    return SettingsList(
-      sections: [
-        SettingsSection(
-          title: Text('Interface'),
-          tiles: <SettingsTile>[
-            SettingsTile.navigation(
-              leading: Icon(Icons.language),
-              title: Text('Linguagem'),
-              value: Text('Português - Brasil'),
-            ),
-            SettingsTile.switchTile(
-              onToggle: (value) {},
-              initialValue: false,
-              leading: Icon(Icons.format_paint),
-              title: Text('Modo escuro'),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-
-  Widget profileContent() {
-    return Text("Conta");
-  }
 
 }
