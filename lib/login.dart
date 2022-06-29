@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'package:aula_pdm/configPage.dart';
+import 'package:aula_pdm/MainPage.dart';
 
 // void main() => runApp(const SignUpApp());
 
@@ -276,4 +276,5 @@ class _AnimatedProgressIndicatorState extends State<AnimatedProgressIndicator>
       ),
     );
   }
+
 }

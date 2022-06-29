@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:settings_ui/settings_ui.dart';
+import 'package:aula_pdm/profile.dart';
 
 void main() => runApp(const SupportApp());
 
