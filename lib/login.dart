@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:aula_pdm/configPage.dart';
 
 // void main() => runApp(const SignUpApp());
 
@@ -31,7 +31,7 @@ class SignUpApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => const SignUpScreen(),
-        '/welcome': (context) => const WelcomeScreen(),
+        '/index': (context) => const SupportScreen(),
       },
     );
   }
@@ -139,7 +139,7 @@ class _SignUpFormState extends State<SignUpForm> {
   }
 
   void _showWelcomeScreen() {
-    Navigator.of(context).pushNamed('/welcome');
+    Navigator.of(context).pushNamed('/index');
   }
 
   @override
