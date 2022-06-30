@@ -94,7 +94,7 @@ class _SupportScreenState extends State<SupportScreen>
               leading: IconButton(
                 icon: const Icon(Icons.arrow_back),
                 onPressed: () {
-                  // Implementar redirecionamento para outra página
+                  Navigator.of(context).pop();
                 },
               ),
               actions: [
