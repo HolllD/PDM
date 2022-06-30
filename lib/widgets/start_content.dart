@@ -5,6 +5,7 @@ import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
 import '../constants.dart';
+import 'globals.dart';
 
 class StartContent extends StatefulWidget {
   const StartContent();
@@ -14,6 +15,8 @@ class StartContent extends StatefulWidget {
 }
 
 class _StartContentState extends State<StartContent> {
+  bool isSwitched = true;
+
   Future<ParseUser?> getUser() async {
     var currentUser = await ParseUser.currentUser() as ParseUser?;
     return currentUser;
@@ -106,18 +109,16 @@ class _StartContentState extends State<StartContent> {
                       fontSize: 15,
                     ),
                   ),
-                  FlutterSwitch(
-                    width: 55.0,
-                    height: 25.0,
-                    valueFontSize: 12.0,
-                    toggleSize: 18.0,
-                    value: isSwitched,
-                    onToggle: (val) {
-                      setState(() {
-                        isSwitched = val;
-                      });
-                    },
-                  ),
+                  Switch(value: globals.isAvailable, onChanged: (value) {
+                    setState(() {
+                      globals.isAvailable = value;
+                    });
+                  },
+                  activeColor: Colors.lightGreen,
+                    activeTrackColor: Colors.white,
+                    inactiveThumbColor: Colors.red[400],
+                    inactiveTrackColor: Colors.white,
+                  )
                 ],
               ),
             ],
