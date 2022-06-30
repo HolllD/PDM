@@ -164,6 +164,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_switch",
+      "rootUri": "file:///C:/tools/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_switch-0.3.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///C:/tools/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -608,7 +614,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-06-28T23:53:21.786074Z",
+  "generated": "2022-06-30T00:01:17.062631Z",
   "generator": "pub",
   "generatorVersion": "2.17.3"
 }

@@ -1,4 +1,5 @@
 import 'package:aula_pdm/widgets/profile_content.dart';
+import 'package:aula_pdm/widgets/start_content.dart';
 import 'package:aula_pdm/widgets/support_content.dart';
 import 'package:flutter/material.dart';
 import 'package:settings_ui/settings_ui.dart';
@@ -109,9 +110,7 @@ class _SupportScreenState extends State<SupportScreen>
             body: TabBarView(
               controller: _tabController,
               children: const [
-                Center(
-                  child: Text("Inicio"),
-                ),
+                StartContent(),
                 Center(
                   child: Text("Feed"),
                 ),

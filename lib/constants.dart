@@ -19,6 +19,12 @@ final kCaptionTextStyle = TextStyle(
   fontWeight: FontWeight.w100,
 );
 
+final kCaptionTextStyleLight = TextStyle(
+  fontSize: ScreenUtil().setSp(kSpacingUnit.w * 1.3),
+  fontWeight: FontWeight.w100,
+  color: kLightSecondaryColor,
+);
+
 final kButtonTextStyle = TextStyle(
   fontSize: ScreenUtil().setSp(kSpacingUnit.w * 1.5),
   fontWeight: FontWeight.w400,
@@ -57,4 +63,10 @@ final kLightTheme = ThemeData(
         bodyColor: kDarkSecondaryColor,
         displayColor: kDarkSecondaryColor,
       ),
+);
+
+final kLightThemeTitle = TextStyle(
+  fontSize: ScreenUtil().setSp(kSpacingUnit.w * 1.7),
+  fontWeight: FontWeight.w600,
+  color: kLightPrimaryColor,
 );

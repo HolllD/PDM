@@ -42,6 +42,7 @@ dependencies:
   form_field_validator: ^1.1.0
   parse_server_sdk_flutter: ^3.1.2
   firebase_core: ^1.18.0
+  flutter_switch: ^0.3.2
 
 dev_dependencies:
   flutter_test:
