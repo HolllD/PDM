@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/export.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
@@ -32,6 +33,7 @@ class _StartContentState extends State<StartContent> {
             children: [
               _banner(context),
               _currentClassesSection(context),
+              _addMoreClassesSection(context),
               _classesSelection(context),
               _messageSection(context),
             ],
@@ -143,49 +145,74 @@ class _StartContentState extends State<StartContent> {
   }
 
   Widget _currentClassesSection(BuildContext context) {
+    List<dynamic>? enrolledList;
+    List<Widget> list = <Widget>[];
+
     return Container(
-      margin: EdgeInsets.only(top: 10),
+      margin: const EdgeInsets.only(top: 10),
       child: Column(
         children: [
           _sectionTitle(context, "Matérias atuais"),
-          _searchBox(context),
+          FutureBuilder<ParseUser?>(
+              future: getUser(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  enrolledList = snapshot.data!.get<List>("enrolledClasses");
+
+                  var enrolledLength = enrolledList?.length.toInt() ?? 0;
+
+                  for (var i = 0; i < enrolledLength; i++) {
+                    list.add(Text(enrolledList![i].toString()));
+                  }
+
+                  return Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      for ( var i in enrolledList! ) Text(i.toString(),
+                        style: kTitleTextStyle,
+                      ),
+                    ],
+                  );
+                } else {
+                  return const Text("Olá, usuário!");
+                }
+              }),
         ],
       ),
     );
   }
 
+  Widget _addMoreClassesSection(BuildContext context) {
+    return Column(
+      children: [
+        _sectionTitle(context, "Adicionar mais matérias"),
+        _searchBox(context),
+      ],
+    );
+  }
+
   Widget _searchBox(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-      // width: MediaQuery.of(context).size.width * 0.8,
-      // Usando 98% da width do dispositivo
-
-      // decoration: const BoxDecoration(
-      //   color: Colors.grey,
-      //   borderRadius: BorderRadius.all(Radius.circular(5)),
-      // ),
-
-      child: Row(
-        children: [
-          Flexible(
-            child: TextFormField(
-              maxLength: 20,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                suffixIcon: Icon(
-                  LineAwesomeIcons.search_plus,
-                  color: Colors.grey,
-                ),
-                labelText: 'Digite a disciplina',
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.black),
-                ),
+    return Row(
+      children: [
+        Flexible(
+          child: TextFormField(
+            maxLength: 20,
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              suffixIcon: Icon(
+                LineAwesomeIcons.search_plus,
+                color: Colors.grey,
               ),
-              onChanged: (value) {},
+              labelText: 'Digite a disciplina',
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.black),
+              ),
             ),
-          )
-        ],
-      ),
+            onChanged: (value) {},
+          ),
+        )
+      ],
     );
   }
 

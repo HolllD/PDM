@@ -1,4 +1,4 @@
-#Thu Jun 30 16:16:02 BRT 2022
+#Thu Jun 30 18:25:17 BRT 2022
 base.0=/home/void/Documents/Github/PDM/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
