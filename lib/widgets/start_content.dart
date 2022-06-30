@@ -31,7 +31,7 @@ class _StartContentState extends State<StartContent> {
           child: ListView(
             children: [
               _banner(context),
-              _classesSearch(context),
+              _currentClassesSection(context),
               _classesSelection(context),
               _messageSection(context),
             ],
@@ -70,18 +70,22 @@ class _StartContentState extends State<StartContent> {
                   future: getUser(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      return Text(
-                        "Olá, ${snapshot.data!.username}.",
-                        style: kLightThemeTitle,
+                      return Column(
+                        children: [
+                          Text(
+                            "Olá, ${snapshot.data!.username}.",
+                            style: kLightThemeTitle,
+                          ),
+                          Text(
+                            "Estudante de ADS do ${snapshot.data!.get("semester")}° período",
+                            style: kLightThemeTitle,
+                          ),
+                        ],
                       );
                     } else {
                       return const Text("Olá, usuário!");
                     }
                   }),
-              Text(
-                "Estudante de ADS do 5° período",
-                style: kLightThemeTitle,
-              ),
               Row(
                 children: [
                   RichText(
@@ -138,7 +142,19 @@ class _StartContentState extends State<StartContent> {
     );
   }
 
-  Widget _classesSearch(BuildContext context) {
+  Widget _currentClassesSection(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(top: 10),
+      child: Column(
+        children: [
+          _sectionTitle(context, "Matérias atuais"),
+          _searchBox(context),
+        ],
+      ),
+    );
+  }
+
+  Widget _searchBox(BuildContext context) {
     return Container(
       margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
       // width: MediaQuery.of(context).size.width * 0.8,
@@ -291,7 +307,9 @@ class _StartContentState extends State<StartContent> {
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
-                        color: Colors.black, blurRadius: 10.0, offset: Offset(-2, 2))
+                        color: Colors.black,
+                        blurRadius: 10.0,
+                        offset: Offset(-2, 2))
                   ]),
             ),
           ),
