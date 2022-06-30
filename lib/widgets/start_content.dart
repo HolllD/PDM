@@ -44,6 +44,7 @@ class _StartContentState extends State<StartContent> {
   }
 
   Widget _banner(BuildContext context) {
+    String available = "Disponível";
     ScreenUtil.init(context, designSize: const Size(414.0, 896.0));
     bool isSwitched;
     isSwitched = true;
@@ -55,7 +56,7 @@ class _StartContentState extends State<StartContent> {
         minHeight: 100,
       ),
       decoration: BoxDecoration(
-          color: Colors.blue[300],
+          color: Colors.lightGreen[400],
           borderRadius: BorderRadius.all(Radius.circular(5)),
           boxShadow: [
             BoxShadow(
@@ -130,9 +131,9 @@ class _StartContentState extends State<StartContent> {
                         globals.isAvailable = value;
                       });
                     },
-                    activeColor: Colors.lightGreen,
+                    activeColor: Colors.lightBlue[300],
                     activeTrackColor: Colors.white,
-                    inactiveThumbColor: Colors.red[400],
+                    inactiveThumbColor: Colors.red[200],
                     inactiveTrackColor: Colors.white,
                   )
                 ],
@@ -253,7 +254,7 @@ class _StartContentState extends State<StartContent> {
       )),
 
       decoration: BoxDecoration(
-          color: Colors.blue[700],
+          color: Colors.lightGreen[300],
           borderRadius: BorderRadius.all(Radius.circular(5)),
           boxShadow: const [
             BoxShadow(

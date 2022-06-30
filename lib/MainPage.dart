@@ -1,5 +1,6 @@
 import 'package:aula_pdm/widgets/profile_content.dart';
 import 'package:aula_pdm/widgets/start_content.dart';
+import 'package:aula_pdm/widgets/subjects_content.dart';
 import 'package:aula_pdm/widgets/support_content.dart';
 import 'package:flutter/material.dart';
 import 'package:settings_ui/settings_ui.dart';
@@ -32,7 +33,7 @@ class _SupportScreenState extends State<SupportScreen>
 
   final List<Tab> myTabs = <Tab>[
     new Tab(icon: const Icon(Icons.home), text: 'Inicio'),
-    new Tab(icon: const Icon(Icons.list_alt), text: 'Feed'),
+    new Tab(icon: const Icon(Icons.list_alt), text: 'Matérias'),
     new Tab(icon: const Icon(Icons.person), text: 'Conta'),
     new Tab(icon: const Icon(Icons.settings), text: 'Configurações'),
   ];
@@ -109,11 +110,9 @@ class _SupportScreenState extends State<SupportScreen>
             ),
             body: TabBarView(
               controller: _tabController,
-              children: const [
+              children: [
                 StartContent(),
-                Center(
-                  child: Text("Feed"),
-                ),
+                SubjectContent(),
                 ProfileContent(),
                 SupportContent(),
               ]

@@ -70,6 +70,7 @@ class SignUpForm extends StatefulWidget {
 class _SignUpFormState extends State<SignUpForm> {
   final _firstNameTextController = TextEditingController();
   final _lastNameTextController = TextEditingController();
+
   // final _usernameTextController = TextEditingController();
 
   double _formProgress = 0;
@@ -147,15 +148,25 @@ class _SignUpFormState extends State<SignUpForm> {
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               controller: _firstNameTextController,
-              decoration:
-                  const InputDecoration(hintText: 'E-mail ou nome de usuário'),
+              decoration: //email
+                  const InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.email,
+                        color: Color.fromARGB(255, 33, 165, 16),
+                      ),
+                      hintText: 'E-mail ou nome de usuário'),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
+              obscureText: true,
+              textInputAction: TextInputAction.next,
               controller: _lastNameTextController,
-              decoration: const InputDecoration(hintText: 'Senha'),
+              decoration: const InputDecoration(
+                  prefixIcon:
+                      Icon(Icons.lock, color: Color.fromARGB(255, 33, 165, 16)),
+                  hintText: 'Senha'),
             ),
           ),
           // Padding(
@@ -268,5 +279,4 @@ class _AnimatedProgressIndicatorState extends State<AnimatedProgressIndicator>
       ),
     );
   }
-
 }
