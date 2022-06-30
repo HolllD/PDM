@@ -1,10 +1,10 @@
-import 'package:aula_pdm/widgets/profile_content.dart';
-import 'package:aula_pdm/widgets/start_content.dart';
-import 'package:aula_pdm/widgets/subjects_content.dart';
-import 'package:aula_pdm/widgets/support_content.dart';
+import 'package:aula_pdm/widgets/Profile/profile_content.dart';
+import 'package:aula_pdm/widgets/Start/start_content.dart';
+import 'package:aula_pdm/widgets/Subjects/subjects_content.dart';
+import 'package:aula_pdm/widgets/Support/support_content.dart';
 import 'package:flutter/material.dart';
 import 'package:settings_ui/settings_ui.dart';
-import 'package:aula_pdm/profile.dart';
+import 'package:aula_pdm/widgets/Profile/profile.dart';
 
 void main() => runApp(const SupportApp());
 

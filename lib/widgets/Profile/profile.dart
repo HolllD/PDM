@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:aula_pdm/constants.dart';
-import 'package:aula_pdm/widgets/profile_list_item.dart';
+import 'package:aula_pdm/widgets/Profile/profile_list_item.dart';
 
 void main() {
   runApp(MyApp());

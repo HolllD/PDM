@@ -6,8 +6,8 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
-import '../constants.dart';
-import 'globals.dart';
+import '../../constants.dart';
+import '../globals.dart';
 
 class StartContent extends StatefulWidget {
   const StartContent();
