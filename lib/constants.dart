@@ -14,9 +14,20 @@ final kTitleTextStyle = TextStyle(
   fontWeight: FontWeight.w600,
 );
 
+final kSectionTitle = TextStyle(
+  fontSize: ScreenUtil().setSp(kSpacingUnit.w * 1.7),
+  fontWeight: FontWeight.w600,
+  color: Colors.redAccent,
+);
+
 final kCaptionTextStyle = TextStyle(
   fontSize: ScreenUtil().setSp(kSpacingUnit.w * 1.3),
   fontWeight: FontWeight.w100,
+);
+
+final kMessageBody = TextStyle(
+  fontSize: ScreenUtil().setSp(kSpacingUnit.w * 1.3),
+  // fontWeight: FontWeight.w100,
 );
 
 final kCaptionTextStyleLight = TextStyle(
