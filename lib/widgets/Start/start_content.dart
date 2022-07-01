@@ -227,11 +227,10 @@ class _StartContentState extends State<StartContent> {
           children: [
             _sectionTitle(context, "Matérias"),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                _classForSelection(context, "ADS"),
-                _classForSelection(context, "Pesquisas"),
                 _classForSelection(context, "Disciplinas"),
+                _classForSelection(context, "Minhas Avaliações"),
               ],
             ),
           ],
@@ -247,11 +246,15 @@ class _StartContentState extends State<StartContent> {
       margin: EdgeInsets.fromLTRB(widthSize * 0.025, 0, widthSize * 0.025, 0),
       height: heightSize * 0.3,
       width: widthSize * 0.25,
-      child: Center(
-          child: Text(
-        "${name}",
-        style: kTitleTextStyle,
-      )),
+      child: Container(
+        margin: EdgeInsets.all(9),
+        
+        child: Center(
+            child: Text(
+              "${name}",
+              style: kTitleTextStyle,
+            )),
+      ),
 
       decoration: BoxDecoration(
           color: Colors.lightGreen[300],
@@ -298,11 +301,14 @@ class _StartContentState extends State<StartContent> {
 
   Widget _message(
       BuildContext context, String sender, String messageSent, bool isOn) {
-    return Row(
-      children: [
-        _avatarWithStatus(context, isOn),
-        _messageBody(sender, messageSent),
-      ],
+    return GestureDetector(
+      onTap: () {},
+      child: Row(
+        children: [
+          _avatarWithStatus(context, isOn),
+          _messageBody(sender, messageSent),
+        ],
+      ),
     );
   }
 

@@ -1,3 +1,4 @@
+import 'package:aula_pdm/widgets/Chat/chat_content.dart';
 import 'package:aula_pdm/widgets/Profile/profile_content.dart';
 import 'package:aula_pdm/widgets/Start/start_content.dart';
 import 'package:aula_pdm/widgets/Subjects/subjects_content.dart';
@@ -17,6 +18,7 @@ class SupportApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => SupportScreen(),
+        '/chat': (context) => ChatContent(),
       },
     );
   }
